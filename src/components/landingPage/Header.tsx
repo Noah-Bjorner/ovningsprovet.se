@@ -10,7 +10,7 @@ export default function Header() {
           href="/"
         >
           <Image
-            src="/logo-2.png"
+            src="/blob.svg"
             alt=""
             width={613}
             height={621}
