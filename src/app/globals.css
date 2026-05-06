@@ -1,0 +1,302 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: Georgia, ui-serif, Cambria, "Times New Roman", Times, serif;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-foreground-hover: var(--foreground-hover);
+  --color-foreground-secondary: var(--foreground-secondary);
+  --color-text: var(--text);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-border: var(--border);
+  --color-border-outline: var(--outline);
+
+  --text-xxxs: 0.5rem;
+  --text-xxs: 0.625rem;
+  --text-9xl: 7rem;
+
+  --font-weight-body: 450;
+
+  --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
+
+  --shadow-3xl: 0 20px 70px 0 rgb(0 0 0 / 0.2);
+  --shadow-active-navbar-dark-mode: 0 1px 8px 0 rgb(0 0 0 / 0.25);
+  --shadow-active-navbar-light-mode: 0 1px 8px 0 rgb(0 0 0 / 0.05);
+  --shadow-dark-inner: inset 0px 1px 12px -1px rgba(0, 0, 0, 0.5);
+  --shadow-semi-dark-inner: inset 0px 1px 12px -1px rgba(0, 0, 0, 0.15);
+  --shadow-light-inner: inset 0px 1px 12px -1px rgb(0 0 0 / 2%);
+
+  --animate-scroll-left: scroll-left linear infinite;
+  --animate-spin-slow: spin-slow 60s linear infinite;
+
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+
+  @keyframes spin-slow {
+    0% {
+      transform: translate(50%, -50%) rotate(0deg);
+    }
+
+    100% {
+      transform: translate(50%, -50%) rotate(360deg);
+    }
+  }
+}
+
+:root {
+  --background: hsl(30, 40%, 98%);
+  --foreground: hsl(0, 0%, 100%);
+  --foreground-hover: hsl(0, 0%, 95%);
+  --foreground-secondary: hsl(26, 18%, 92%);
+  --border: hsl(15, 11%, 90%);
+  --outline: hsl(15, 11%, 95%);
+  --text: hsl(0, 0%, 12%);
+  --text-secondary: hsla(0, 0%, 12%, 0.65);
+  --text-tertiary: hsla(0, 0%, 12%, 0.45);
+  --link: var(--text);
+  --link-hover: var(--text-secondary);
+  --glass-text-primary: rgb(255 255 255);
+  --glass-text-secondary: rgba(255, 255, 255, 0.72);
+  --glass-surface: rgba(37, 37, 37, 0.72);
+  --glass-surface-strong: rgba(37, 37, 37, 0.82);
+  --glass-border: hsla(0, 0%, 100%, 0.15);
+  --glass-border-active: hsla(0, 0%, 100%, 0.22);
+  --glass-shadow: 0 12px 48px rgba(0, 0, 0, 0.35);
+  --glass-shadow-inset: inset 0 0 0 1px hsla(0, 0%, 100%, 0.06);
+  --glass-blur: 20px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: hsl(0, 0%, 0%);
+    --foreground: hsl(0, 0%, 12%);
+    --foreground-hover: hsl(0, 0%, 20%);
+    --foreground-secondary: hsl(0, 0%, 6%);
+    --border: rgba(255, 255, 255, 0.14);
+    --outline: rgba(255, 255, 255, 0.04);
+    --text: hsl(0, 0%, 98%);
+    --text-secondary: hsla(0, 0%, 100%, 0.65);
+    --text-tertiary: hsla(0, 0%, 100%, 0.45);
+    --link: var(--text);
+    --link-hover: var(--text-secondary);
+  }
+}
+
+body {
+  color: var(--text);
+  background: var(--background);
+  font-family: var(--font-sans);
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+@layer components {
+  
+  .question-markdown {
+    @apply text-base leading-7 text-text;
+  }
+
+  .question-markdown > :first-child {
+    @apply mt-0;
+  }
+
+  .question-markdown > :last-child {
+    @apply mb-0;
+  }
+
+  .question-markdown p,
+  .question-markdown h1,
+  .question-markdown h2,
+  .question-markdown h3,
+  .question-markdown h4,
+  .question-markdown h5,
+  .question-markdown h6 {
+    @apply my-4 font-sans font-normal leading-relaxed text-text text-base;
+  }
+
+  .question-markdown ul,
+  .question-markdown ol {
+    @apply my-4 space-y-2 pl-6;
+  }
+
+  .question-markdown ul {
+    @apply list-disc;
+  }
+
+  .question-markdown ol {
+    @apply list-decimal;
+  }
+
+  .question-markdown li {
+    @apply pl-1;
+  }
+
+  .question-markdown strong {
+    @apply font-semibold;
+  }
+
+  .question-markdown em {
+    @apply italic;
+  }
+
+  .question-markdown a {
+    @apply underline underline-offset-4 transition hover:text-text-secondary;
+  }
+
+  .question-markdown blockquote {
+    @apply my-5 border-l-2 border-border pl-4 italic text-text-secondary;
+  }
+
+  .question-markdown code:not(pre code) {
+    @apply rounded bg-foreground-secondary px-1.5 py-0.5 font-mono text-sm;
+  }
+
+  .question-markdown pre {
+    @apply my-5 overflow-x-auto rounded-xl bg-foreground-secondary p-4 text-sm;
+  }
+
+  .question-markdown table {
+    @apply w-full min-w-max border-separate border-spacing-0 text-sm;
+  }
+
+  .question-markdown th,
+  .question-markdown td {
+    @apply border-b border-r border-border px-3 py-2 align-top;
+  }
+
+  .question-markdown th:last-child,
+  .question-markdown td:last-child {
+    @apply border-r-0;
+  }
+
+  .question-markdown tbody tr:last-child td {
+    @apply border-b-0;
+  }
+
+  .question-markdown th {
+    @apply bg-foreground-secondary font-medium text-text;
+  }
+
+  .question-markdown thead:not(:has(th:not(:empty))) {
+    @apply hidden;
+  }
+
+  .question-markdown img {
+    @apply my-5 max-w-full rounded-xl;
+  }
+
+  .question-markdown .question-image-block,
+  .question-markdown .question-image-row,
+  .question-markdown p:has(> img + img) {
+    @apply my-4;
+  }
+
+  .question-markdown .question-image-row,
+  .question-markdown .question-image-block:has(> .question-image + .question-image),
+  .question-markdown p:has(> img + img) {
+    @apply flex flex-wrap items-start gap-4;
+  }
+
+  .question-markdown .question-image {
+    @apply inline-flex max-w-full flex-col gap-4 align-top;
+    max-width: var(--question-image-width, 100%);
+  }
+
+  .question-markdown .question-image-media {
+    @apply inline-block max-w-full overflow-hidden rounded-xl;
+    aspect-ratio: var(--question-image-ratio, auto);
+    height: var(--question-image-height, auto);
+  }
+
+  .question-markdown .question-image-media img {
+    @apply m-0 block h-full w-full max-w-none rounded-xl object-contain;
+  }
+
+  .question-markdown .question-image figcaption {
+    @apply text-base leading-5 text-text text-center;
+  }
+
+  .question-markdown .question-image-row .question-image,
+  .question-markdown .question-image-block:has(> .question-image + .question-image) .question-image,
+  .question-markdown p:has(> img + img) .question-image {
+    @apply m-0;
+    flex: 0 1 auto;
+  }
+
+  .question-markdown .question-image-row .question-image-media,
+  .question-markdown .question-image-block:has(> .question-image + .question-image) .question-image-media,
+  .question-markdown p:has(> img + img) .question-image-media {
+    height: var(--question-image-height, var(--question-image-row-height, 200px)) !important;
+    max-height: var(--question-image-height, var(--question-image-row-height, 200px));
+    min-height: var(--question-image-height, var(--question-image-row-height, 200px));
+    width: auto !important;
+  }
+
+  .question-markdown .katex-display {
+    @apply my-5 overflow-x-auto overflow-y-hidden;
+  }
+
+  .notebook-answer-field {
+    --notebook-line-height: 1.75rem;
+    line-height: var(--notebook-line-height);
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent calc(var(--notebook-line-height) - 1px),
+      rgba(120, 120, 120, 0.25) calc(var(--notebook-line-height) - 1px),
+      rgba(120, 120, 120, 0.25) var(--notebook-line-height)
+    );
+    background-origin: content-box;
+    background-clip: content-box;
+  }
+
+  .text-reasoning-field {
+    font-family: KaTeX_Main, serif;
+  }
+
+  .math-reasoning-field {
+    font-family: KaTeX_Main, serif;
+    --text-font-family: KaTeX_Main, serif;
+    --highlight-text: transparent;
+    --text-highlight-background-color: transparent;
+    --contains-highlight-background-color: transparent;
+  }
+
+  .math-reasoning-field::part(container) {
+    align-items: flex-start;
+    min-height: inherit;
+    padding: 0;
+  }
+
+  .math-reasoning-field::part(content) {
+    align-items: flex-start;
+    min-height: inherit;
+    padding: 0;
+  }
+
+  .math-reasoning-field::part(menu-toggle),
+  .math-reasoning-field::part(virtual-keyboard-toggle) {
+    display: none !important;
+  }
+}
