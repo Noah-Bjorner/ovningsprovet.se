@@ -1,17 +1,25 @@
+import Image from "next/image";
 import Link from "next/link";
-
-import { LogoFull } from "@/components/svgs/Logos";
 
 export default function Header() {
   return (
     <nav className="fixed top-0 z-50 flex w-full items-center justify-between bg-linear-to-b from-background to-transparent md:bg-transparentif">
-      <div className="flex w-full items-center justify-between p-4">
-        <Link href="/">
-          <LogoFull
-            className="translate-y-[-1px] md:translate-y-[-2px]"
-            color="var(--text)"
-            height="h-5"
+      <div className="flex w-full items-center md:items-start justify-between p-4">
+        <Link
+          className="flex items-center gap-[0.35rem] md:gap-[0.4rem] font-sans md:translate-y-[0.25rem]"
+          href="/"
+        >
+          <Image
+            src="/logo-2.png"
+            alt=""
+            width={613}
+            height={621}
+            className="h-[1.5rem] w-auto shrink-0 md:h-[1.4rem]"
+            priority
           />
+          <span className="translate-y-[0.08rem] text-[1rem] md:text-[0.95rem] font-[750] uppercase tracking-tight text-text [font-variation-settings:'ROND'_100]">
+            Övningsprovet
+          </span>
         </Link>
 
         <div className="flex items-center gap-1.5">

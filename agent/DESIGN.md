@@ -1,0 +1,1 @@
+*write my instruction for how do use design system so agent can have a decent one shoot*
