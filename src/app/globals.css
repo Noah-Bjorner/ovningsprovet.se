@@ -15,6 +15,7 @@
   --color-text-tertiary: var(--text-tertiary);
   --color-border: var(--border);
   --color-border-outline: var(--outline);
+  --color-primary: var(--primary);
 
   --text-xxxs: 0.5rem;
   --text-xxs: 0.625rem;
@@ -57,42 +58,19 @@
 
 :root {
   --background: hsl(30, 40%, 98%);
-  --foreground: hsl(0, 0%, 100%);
+  --foreground: hsl(30, 40%, 100%);
   --foreground-hover: hsl(0, 0%, 95%);
   --foreground-secondary: hsl(26, 18%, 92%);
-  --border: hsl(15, 11%, 90%);
+  --border: hsl(30, 40%, 92%);
   --outline: hsl(15, 11%, 95%);
   --text: hsl(0, 0%, 12%);
+  --primary: #f54e00;
   --text-secondary: hsla(0, 0%, 12%, 0.65);
   --text-tertiary: hsla(0, 0%, 12%, 0.45);
   --link: var(--text);
   --link-hover: var(--text-secondary);
-  --glass-text-primary: rgb(255 255 255);
-  --glass-text-secondary: rgba(255, 255, 255, 0.72);
-  --glass-surface: rgba(37, 37, 37, 0.72);
-  --glass-surface-strong: rgba(37, 37, 37, 0.82);
-  --glass-border: hsla(0, 0%, 100%, 0.15);
-  --glass-border-active: hsla(0, 0%, 100%, 0.22);
-  --glass-shadow: 0 12px 48px rgba(0, 0, 0, 0.35);
-  --glass-shadow-inset: inset 0 0 0 1px hsla(0, 0%, 100%, 0.06);
-  --glass-blur: 20px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: hsl(0, 0%, 0%);
-    --foreground: hsl(0, 0%, 12%);
-    --foreground-hover: hsl(0, 0%, 20%);
-    --foreground-secondary: hsl(0, 0%, 6%);
-    --border: rgba(255, 255, 255, 0.14);
-    --outline: rgba(255, 255, 255, 0.04);
-    --text: hsl(0, 0%, 98%);
-    --text-secondary: hsla(0, 0%, 100%, 0.65);
-    --text-tertiary: hsla(0, 0%, 100%, 0.45);
-    --link: var(--text);
-    --link-hover: var(--text-secondary);
-  }
-}
 
 body {
   color: var(--text);

@@ -17,7 +17,7 @@ interface FeatureCardProps {
 function FeatureCard({ slide }: FeatureCardProps) {
   return (
     <div className="w-[85vw] shrink-0 snap-center md:w-full" data-feature-slide>
-      <div className="flex h-[140px] items-stretch overflow-hidden rounded-3xl bg-[hsl(30_40%_95%)] border border-[hsl(30_40%_92%)] md:h-[110px]">
+      <div className="flex h-[140px] items-stretch overflow-hidden rounded-3xl border border-border bg-[hsl(30_40%_95%)] md:h-[110px]">
         <div className="flex min-w-0 flex-1 flex-col justify-center gap-2 p-4 md:px-6">
           <h3 className="line-clamp-2 text-sm font-[450] leading-tight text-text">
             {slide.title}
