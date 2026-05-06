@@ -35,7 +35,6 @@ export default function Home() {
         <div className="relative z-10 mt-40 mb-24 flex w-full flex-1 flex-col items-center justify-center gap-6 md:mt-24 md:mb-12">
           <div className="flex w-full max-w-2xl flex-col items-center gap-8 px-4 md:px-0">
             <div className="flex flex-col items-center gap-2">
-              
               <div className="hidden md:flex mb-4 flex-row items-center justify-center gap-2 rounded-xl py-1.5 px-2.5">
                 <p className="text-xs font-medium leading-none text-text">
                   Listen in your podcast app

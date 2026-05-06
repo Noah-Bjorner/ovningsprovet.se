@@ -1,5 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
+
+import BlobIcon from "@/components/logo/icons/BlobIcon";
 
 export default function Header() {
   return (
@@ -9,13 +10,9 @@ export default function Header() {
           className="flex items-center gap-[0.35rem] md:gap-[0.4rem] font-sans md:translate-y-[0.25rem]"
           href="/"
         >
-          <Image
-            src="/logo-1.png"
-            alt=""
-            width={613}
-            height={621}
-            className="h-[1.5rem] w-auto shrink-0 md:h-[1.4rem]"
-            priority
+          <BlobIcon
+            aria-hidden="true"
+            className="h-[1.5rem] w-[1.5rem] shrink-0 text-text md:h-[1.4rem] md:w-[1.4rem]"
           />
           <span className="translate-y-[0.08rem] text-[1rem] md:text-[0.95rem] font-[750] uppercase tracking-tight text-text [font-variation-settings:'ROND'_100]">
             Övningsprovet

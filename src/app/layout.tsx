@@ -13,6 +13,9 @@ const googleSansFlex = Google_Sans_Flex({
 export const metadata: Metadata = {
   title: "Övningsprovet.se",
   description: "Övningsprovet.se är en webbplats som hjälper dig att förbereda dig för dina prov.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
