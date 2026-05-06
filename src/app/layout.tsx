@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
-import { Instrument_Sans } from "next/font/google";
+import { Google_Sans_Flex } from "next/font/google";
 import "./globals.css";
 
-const instrumentSans = Instrument_Sans({
-  subsets: ["latin"],
+const googleSansFlex = Google_Sans_Flex({
+  subsets: ["latin", "latin-ext"],
   weight: "variable",
-  variable: "--font-instrument-sans",
+  axes: ["GRAD", "ROND", "wdth"],
+  adjustFontFallback: false,
+  variable: "--font-google-sans-flex",
 });
 
 export const metadata: Metadata = {
-  title: "Exam Helper",
-  description: "Mock exam helper pages styled like edu.noahbjorner.com.",
+  title: "Övningsprovet.se",
+  description: "Övningsprovet.se är en webbplats som hjälper dig att förbereda dig för dina prov.",
 };
 
 export default function RootLayout({
@@ -20,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${instrumentSans.variable} antialiased`}>
+      <body className={`${googleSansFlex.variable} antialiased`}>
         {children}
       </body>
     </html>
